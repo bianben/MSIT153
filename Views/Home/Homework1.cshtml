@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Homework1";
+}
+
+<h1>Homework1</h1>
+
+
+<div id="viewcard" class="row row-cols-1 row-cols-md-3 g-4">
+</div>
+
+@section Scripts{
+    <script src="~/datas/travel.js"></script>
+    <script>
+        console.log(spots);
+
+        const datas = spots.CommonFormat.Section.map(Section => {
+            const { stitle, xbody, file } = Section;
+            var imgSrc = file && file.img && file.img[0] && file.img[0].text;
+            var bb = xbody.substring(0, 500);
+            return (`
+                                    <div class="col">
+                                        <div class="card">
+                                                    <img src="${imgSrc}" class="card-img-top" alt="無圖片">
+                                            <div class="card-body">
+                                                        <h5 class="card-title">${stitle}</h5>
+                                                        <p class="card-text">${bb}</p>
+                                            </div>
+                                        </div>
+                                    </div>`)
+        })
+        document.querySelector('#viewcard').innerHTML = datas.join("");
+    </script>
+}
