@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "First";
+}
+
+<h1>First</h1>
+
+<button id="buttonStart" class="btn btn-primary">Ajax Start</button>
+<div id="div1" class="alert alert-info"></div>
+
+@section Scripts{
+    <script>
+        const btn = document.querySelector('#buttonStart');
+        const thediv = document.querySelector('#div1');
+
+        btn.addEventListener('click', () => {
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', '/api/Index/?name=Jack&age=10');
+            xhr.send();
+            xhr.addEventListener('load', () => {
+                const data = xhr.responseText;
+                thediv.innerHTML = data;
+            })
+        })
+    </script>
+}

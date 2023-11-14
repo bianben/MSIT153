@@ -22,6 +22,10 @@ namespace MSIT153.Controllers
         {
             return View();
         }
+        public IActionResult First()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
