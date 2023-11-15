@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using MSIT153.Models;
 using MSIT153.ViewModels;
 
@@ -42,14 +43,14 @@ namespace MSIT153.Controllers
             //return Content("<h2>Ajax 你好 !!</h2>","text/html", System.Text.Encoding.UTF8);
             //return Content($"Hello {member.name}，{member.email},  You are {member.age} years old.");
         }
-        public IActionResult Homework2api(string name)
+        public IActionResult Homework2api(string Name)
         {
             var q = _context.Members.Select(m => m.Name);
 
-            if (string.IsNullOrEmpty(name))
+            if (string.IsNullOrEmpty(Name))
                 return Content("請輸入暱稱");
             
-            if(q.Contains(name))
+            if(q.Contains(Name))
                 return Content("此暱稱已有人使用");
 
             return Content("此暱稱可以使用");
