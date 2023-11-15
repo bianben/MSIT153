@@ -7,15 +7,22 @@ namespace MSIT153.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly dbDemoContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, dbDemoContext Context)
         {
             _logger = logger;
+            _context = Context;
         }
 
         public IActionResult Index()
         {
             return View();
+        }
+        public IActionResult test()
+        {
+            var n = _context.Members;
+            return View(n);
         }
 
         public IActionResult Privacy()
@@ -23,6 +30,10 @@ namespace MSIT153.Controllers
             return View();
         }
         public IActionResult First()
+        {
+            return View();
+        }
+        public IActionResult Register()
         {
             return View();
         }

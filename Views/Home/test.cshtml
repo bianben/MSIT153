@@ -1,0 +1,15 @@
+﻿@model IEnumerable<MSIT153.Models.Members>
+
+@{
+    ViewData["Title"] = "test";
+}
+
+<h1>test</h1>
+
+
+<ul>
+ @foreach(var member in Model)
+ {
+ <li>@member.Name</li>
+ }
+</ul>
