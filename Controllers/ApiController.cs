@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MSIT153.Models;
 using MSIT153.ViewModels;
 
 namespace MSIT153.Controllers
@@ -7,9 +8,12 @@ namespace MSIT153.Controllers
     {
         //public IActionResult Index(string name,int age)
         private readonly IWebHostEnvironment _host;
-        public ApiController(IWebHostEnvironment host)
+        private readonly dbDemoContext _context;
+
+        public ApiController(IWebHostEnvironment host, dbDemoContext Context)
         {
             _host = host;
+            _context = Context;
         }
         public IActionResult Index(UserViewModel user)
         {
@@ -34,6 +38,18 @@ namespace MSIT153.Controllers
                 formFile.CopyTo(fileStream);
             }
             return Content(strPath);
+
+            //return Content("<h2>Ajax 你好 !!</h2>","text/html", System.Text.Encoding.UTF8);
+            //return Content($"Hello {member.name}，{member.email},  You are {member.age} years old.");
+        }
+        public IActionResult Homework2api(string name)
+        {
+            var q= _context.Members.Select(m => m.Name);
+            if(q.Contains(name))
+                return Content("此暱稱已有人使用");
+            return Content("此暱稱可以使用");
+
+
 
             //return Content("<h2>Ajax 你好 !!</h2>","text/html", System.Text.Encoding.UTF8);
             //return Content($"Hello {member.name}，{member.email},  You are {member.age} years old.");
