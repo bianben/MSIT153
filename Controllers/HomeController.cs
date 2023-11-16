@@ -15,6 +15,11 @@ namespace MSIT153.Controllers
             _context = Context;
         }
 
+        public ActionResult History()
+        {
+            return View();
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -37,11 +42,27 @@ namespace MSIT153.Controllers
         {
             return View();
         }
+        public IActionResult Address()
+        {
+            return View();
+        }
+        public IActionResult Fetch()
+        {
+            return View();
+        }
         public IActionResult Homework1()
         {
             return View();
         }
         public IActionResult Homework2()
+        {
+            return View();
+        }
+        public IActionResult Homework3()
+        {
+            return View();
+        }
+        public IActionResult Homework31()
         {
             return View();
         }
