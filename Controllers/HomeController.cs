@@ -24,6 +24,23 @@ namespace MSIT153.Controllers
         {
             return View();
         }
+
+        public IActionResult Partial2()
+        {
+            ViewBag.kk = "來自partial2 Action";
+            return PartialView();
+        }
+        
+        public IActionResult Partial1()
+        {
+            return PartialView();
+        }
+
+        public IActionResult jQuery()
+        {
+            return View();
+        }
+
         public IActionResult test()
         {
             var n = _context.Members;
@@ -34,6 +51,7 @@ namespace MSIT153.Controllers
         {
             return View();
         }
+        
         public IActionResult First()
         {
             return View();
